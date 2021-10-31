@@ -26,8 +26,10 @@ class HeimdallServer():
         
         """
         # Load config file
-        logFilePath = 'heimdall/resources/application.yml'
-        self.config = self.loadConfigFile(logFilePath)
+        configFile = 'heimdall/config/application.yml'
+        self.config = self.loadConfigFile(configFile)
+
+        # TODO : Allow env var like HEIMDALL_CONFIG_FILE fr override default config
 
         # Override Flask default configuraton
         if self.config.get('app') != None:
@@ -38,6 +40,7 @@ class HeimdallServer():
 
     def run(self):
         """ Start server with configuration found in application.yml """
+        self.configuration()
         self.app.run(
             host=self.config.get('server').get('host'),
             port=self.config.get('server').get('port'), 

@@ -1,0 +1,4 @@
+routes: 
+  
+  - controller: AuthController
+    path: /whoami
