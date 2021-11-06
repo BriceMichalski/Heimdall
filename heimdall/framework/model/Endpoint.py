@@ -6,6 +6,7 @@ from flask import g
 from heimdall.framework.decorator.Endpoint import RequestArgs
 from heimdall.framework.model.HttpStatus import HttpStatus
 from heimdall.framework.model.ApiRessource import ApiRessource
+
 __all__ = [
     "Endpoint",
     "abort",
@@ -19,27 +20,25 @@ __all__ = [
 
 def ErrorResponse(code :HttpStatus =HttpStatus.INTERNAL_ERROR,msg :str = "Something went wrong. (INTERNAL_SERVER_ERROR)"):
     resp = {
-        "message": msg
+        "message": msg,
+        "status": code
     }
 
     return resp,code
 
 
-def SuccessResponse(code :HttpStatus =HttpStatus.OK, body =None):
+def SuccessResponse(code :HttpStatus =HttpStatus.OK, body ="OK"):
 
-    resp = {
-        "message": "OK"
-    }
+    if type(body) is str:
+        resp = {
+            "message": body
+        }
 
-    if body != None:
-        if type(body) is str:
-            resp = {
-                "message": body
-            }
-        elif issubclass(type(body),ApiRessource):
-            resp = body.asDict()
-        else:
-            resp = body
+    elif issubclass(type(body),ApiRessource):
+        resp = body.asDict()
+
+    else:
+        resp = body
 
 
     return resp,code
