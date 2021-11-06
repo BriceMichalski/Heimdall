@@ -1,6 +1,4 @@
-import sys
-from flask_restful import Api, Resource
-
+from flask_restful import Resource
 
 class HealthController(Resource):
 

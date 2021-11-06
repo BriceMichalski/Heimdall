@@ -1,7 +1,7 @@
 from os import path
 from flask_restful import Api
-from heimdall.controller.HealthController import HealthController
-
+from heimdall.framework.controller.HealthController import HealthController
+from heimdall.framework.model.TermColors import TermColors
 import yaml
 
 ROUTE_FILE = 'heimdall/config/routes.yml' 
@@ -34,7 +34,7 @@ class Router:
     
     def registerRoute(self, klass ,path :str) -> None:
         self.api.add_resource(klass, path)
-        print("Route succesfully register for path " + path)
+        print(f"{TermColors.HEADER} * Route created for path " + path + TermColors.ENDC)
 
     def getDynamicRouteConfig(self) -> list:
         routes = []
@@ -44,7 +44,6 @@ class Router:
                 config = yaml.safe_load(stream)
                 try: 
                     routesConfig = config.get("routes")
-
                     for route in routesConfig:
                         routes.append({
                             "path": route.get("path"),

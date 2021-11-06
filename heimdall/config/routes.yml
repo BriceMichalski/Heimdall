@@ -1,4 +1,7 @@
 routes: 
   
+  # - controller: ProfileController
+  #   path: /user/profile
   - controller: AuthController
-    path: /whoami
+    path: /auth
+    

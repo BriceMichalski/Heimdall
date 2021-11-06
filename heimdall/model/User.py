@@ -1,15 +1,14 @@
-from flask_restful import reqparse
-from flask_bcrypt import generate_password_hash, check_password_hash
+from heimdall.framework.model.ApiRessource import ApiRessource
+from heimdall.model.Role import Role
 
-class User:
-
-    attribute = reqparse.RequestParser()
-    attribute.add_argument("id", type=str)
-    attribute.add_argument("name", type=str, help="name is missing", required=True)
-    attribute.add_argument("password", type=str, help="password is missing", required=True)
-
-    def hashPassword(password: str) -> str:
-        return generate_password_hash(password).decode('utf8')
+class User(ApiRessource):
     
-    def check_password(hashedPassword: str,password: str) -> bool:
-        return check_password_hash(hashedPassword,password)
+    _DTO_BLACKLIST= ["password"]
+
+    def __init__(self, username :str, password :str =None, email :str =None , roles :list =[]) -> None:
+        self.username = username
+        self.password = password
+        self.email = email
+        self.roles = roles 
+
+        

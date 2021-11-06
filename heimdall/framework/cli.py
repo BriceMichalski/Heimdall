@@ -1,8 +1,8 @@
 """Cli interface for Heimdall"""
 import click
-from loguru import logger
+import pyfiglet
 
-from heimdall.HeimdallServer import HeimdallServer
+from heimdall.framework.HeimdallServer import HeimdallServer
 
 server = HeimdallServer()
 
@@ -12,6 +12,9 @@ def main():
     
 @main.command()
 def start():
+    banner = pyfiglet.figlet_format("Heimdall")
+    print(banner)
+    print(" * Starting heimdall server")
     """Start heimdall server"""
     server.run()
     

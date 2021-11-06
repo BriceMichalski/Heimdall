@@ -20,5 +20,5 @@ setup(
     url="https://github.com/BriceMichalski/Heimdall",
     version="0.1.0",
     zip_safe=False,
-    entry_points={"console_scripts": ["heimdall=heimdall.cli:main"]},
+    entry_points={"console_scripts": ["heimdall=heimdall.framework.cli:main"]},
 )
