@@ -5,7 +5,7 @@ from flask import g
 
 from heimdall.framework.decorator.Endpoint import RequestArgs
 from heimdall.framework.model.HttpStatus import HttpStatus
-from heimdall.framework.model.ApiRessource import ApiRessource
+from heimdall.framework.model.ApiResource import ApiResource
 
 __all__ = [
     "Endpoint",
@@ -34,7 +34,7 @@ def SuccessResponse(code :HttpStatus =HttpStatus.OK, body ="OK"):
             "message": body
         }
 
-    elif issubclass(type(body),ApiRessource):
+    elif issubclass(type(body),ApiResource):
         resp = body.asDict()
 
     else:

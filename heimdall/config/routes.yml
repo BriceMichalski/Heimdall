@@ -4,4 +4,6 @@ routes:
   #   path: /user/profile
   - controller: AuthController
     path: /auth
-    
+  
+  - controller: ResourceController
+    path: /resource

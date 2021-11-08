@@ -1,6 +1,6 @@
-from heimdall.framework.model.ApiRessource import ApiRessource
+from heimdall.framework.model.ApiResource import ApiResource
 
-class Authentication(ApiRessource):
+class Authentication(ApiResource):
 
     def __init__(self,token,refreshToken) -> None:
         self.access_token = token

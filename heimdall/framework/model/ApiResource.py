@@ -1,5 +1,5 @@
 
-class ApiRessource:
+class ApiResource:
 
     def asDict(self) -> dict:
         dict = self.__dict__.copy()

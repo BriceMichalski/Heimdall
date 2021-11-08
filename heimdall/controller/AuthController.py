@@ -5,7 +5,6 @@ from heimdall.service.AuthService import AuthService
 class AuthController(Endpoint):
 
     def __init__(self) -> None:
-        super().__init__()
         self.authService = AuthService()
         
 

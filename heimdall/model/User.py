@@ -1,7 +1,6 @@
-from heimdall.framework.model.ApiRessource import ApiRessource
-from heimdall.model.Role import Role
+from heimdall.framework.model.ApiResource import ApiResource
 
-class User(ApiRessource):
+class User(ApiResource):
     
     _DTO_BLACKLIST= ["password"]
 
