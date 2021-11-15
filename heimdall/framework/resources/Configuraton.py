@@ -13,6 +13,7 @@ class Configuration(metaclass=Singleton):
                 self._server = ServerConfiguration(config.get("server"))
                 self._database = DatabaseConfiguration(config.get("database"))
                 self._security = SecurityConfiguration(config.get("security"))
+                self._workingDir = config.get('working_dir')
 
             except Exception as exc:
                 print(exc)
@@ -28,6 +29,10 @@ class Configuration(metaclass=Singleton):
     @property
     def security(self):
         return self._security
+
+    @property
+    def workingDir(self):
+        return self._workingDir
 
 class SecurityConfiguration():
     

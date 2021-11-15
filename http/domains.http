@@ -1,0 +1,9 @@
+@base_url = 192.168.1.158
+@port = 8080
+
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNjk5NjI2MywianRpIjoiNDllNDA4ZTQtZTcyYi00MzJlLWFkMDAtOWY5NjQ5M2RlZjFhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjM2OTk2MjYzLCJleHAiOjE2MzcwMTA2NjMsInJvbGVzIjpbIkFETUlOIl19.WV2Wxs9jdQMHVlBcfLUNVKUXkw2gj0G1EYvQe7vpb28
+
+### GET STATIC NODE INFO
+GET http://{{base_url}}:{{port}}/domain
+Content-Type: application/json
+Authorization: Bearer {{token}} 

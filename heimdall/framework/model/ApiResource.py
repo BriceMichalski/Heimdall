@@ -1,5 +1,15 @@
 
+import uuid
+
 class ApiResource:
+    
+    def __init__(self,dict :dict) -> None:
+
+        if dict.get("uuid") == None:
+            self.uuid = str(uuid.uuid1())
+        else: 
+            self.uuid = dict.get('uuid')
+
 
     def asDict(self) -> dict:
         dict = self.__dict__.copy()

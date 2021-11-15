@@ -4,11 +4,14 @@ server:
   debug: false
   secret: ChangeThisSecret
 
+working_dir: /data/heimdall  
 database: 
   path: "/data/heimdall/db.json"
 
 security:
-  jwt_ttl_minutes: 60
+  jwt_ttl_minutes: 240
   admin:
     username: admin
     password: password
+
+

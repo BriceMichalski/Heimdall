@@ -1,0 +1,19 @@
+@base_url = 192.168.1.158
+@port = 8080
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNjkwMzU4OCwianRpIjoiNWNmNTdjZjQtYWYyZS00MDFkLTk5MjEtODFhZWM4OTk3NDFlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjM2OTAzNTg4LCJleHAiOjE2MzY5MTc5ODgsInJvbGVzIjpbIkFETUlOIl19.Ul1rzYGZKPFZ8tzN6XTxQGLYsf7HjKcfA-WTRMiwotY
+
+
+### GET STATIC NODE INFO
+GET http://{{base_url}}:{{port}}/hypervisor/info 
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+
+### GET DYNAMIC RESOURCE
+POST http://{{base_url}}:{{port}}/hypervisor/resource 
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+{
+    "unit": "GB"
+}

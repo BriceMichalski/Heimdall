@@ -1,6 +1,6 @@
 from heimdall.framework.model.ApiResource import ApiResource
 
-from heimdall.model.SizeUnit import SizeUnit
+from heimdall.helper.SizeUnit import SizeUnit
 
 class Resource(ApiResource):
 

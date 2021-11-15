@@ -1,9 +1,25 @@
 routes: 
-  
-  # - controller: ProfileController
-  #   path: /user/profile
+
   - controller: AuthController
     path: /auth
   
   - controller: ResourceController
-    path: /resource
+    path: /hypervisor/resource
+
+  - controller: HypervisorController
+    path: /hypervisor/info
+
+  - controller: DomainsController
+    path: /domain
+
+  - controller: BaseImageController
+    path: /domain/base-image
+  
+  - controller: DomainController
+    path: /domain/manage/<string:domainUUID>
+
+  - controller: NetworkController
+    path: /network
+
+  - controller: InterfaceController
+    path: /network/interfaces

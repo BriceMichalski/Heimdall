@@ -1,0 +1,47 @@
+@base_url = 192.168.1.158
+@port = 8080
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNjgwNzI5NSwianRpIjoiMDEzOGU3ODMtMTRlMi00MmYyLTg0ZDctMDNiNTk1NTE3YTY4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjM2ODA3Mjk1LCJleHAiOjE2MzY4MjE2OTUsInJvbGVzIjpbIkFETUlOIl19.DdWD6GQyOJ3b6kEUBJpBv1nrcB7ST8usdHYzmJmzAvk
+
+#
+#   NETWORK
+#
+
+### get network list
+GET http://{{base_url}}:{{port}}/network
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### create network
+POST http://{{base_url}}:{{port}}/network
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+{
+    "name": "firstnet",
+    "bridge": "virbr1",
+    "forwardMode":"nat",
+    "ipAdress": "192.168.100.1",
+    "netmask": "255.255.255.0",
+    "dhcpStart": "192.168.100.2",
+    "dhcpEnd": "192.168.100.254"
+}
+
+### delete network
+DELETE http://{{base_url}}:{{port}}/network
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+{
+    "name": "firstnet",
+    "uuid": "85dabbec-699e-4aff-9d2f-c4ee48641286"
+
+}
+
+#
+#   NETWORK INTERFACE
+#
+
+### get network interface list
+GET http://{{base_url}}:{{port}}/network/interfaces
+Content-Type: application/json
+Authorization: Bearer {{token}} 

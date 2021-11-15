@@ -12,7 +12,6 @@ class Role:
         UNAUTHENTICATED: 1
     }
 
-    # 3
     def listRoles(self,currentRole):
         roles = []
 
@@ -35,4 +34,8 @@ class Role:
         return roles
 
     def hasRole(self,currentRole,target):
-        return target in self.listRole(currentRole)
+        if type(currentRole) is int:
+            return target in self.listRole(currentRole)
+        if type(currentRole) is str:
+            roleInt = self._hierachie.get(currentRole)
+            return target in self.listRoles(roleInt)

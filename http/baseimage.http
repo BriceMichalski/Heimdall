@@ -1,0 +1,35 @@
+@base_url = 192.168.1.158
+@port = 8080
+
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYzNjk5NjI2MywianRpIjoiNDllNDA4ZTQtZTcyYi00MzJlLWFkMDAtOWY5NjQ5M2RlZjFhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNjM2OTk2MjYzLCJleHAiOjE2MzcwMTA2NjMsInJvbGVzIjpbIkFETUlOIl19.WV2Wxs9jdQMHVlBcfLUNVKUXkw2gj0G1EYvQe7vpb28
+
+### create new base images
+
+POST http://{{base_url}}:{{port}}/domain/base-image
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+{
+    "name": "Ubuntu Server 18.04 LTS",
+    "url": "https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img",
+    "md5sum": "db7be22ceaec63ffc96685078920eaad",
+    "family": "linux",
+    "variant": "ubuntu18"
+}
+
+
+### get base images list
+GET http://{{base_url}}:{{port}}/domain/base-image
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+
+### delete base image
+DELETE http://{{base_url}}:{{port}}/domain/base-image
+Content-Type: application/json
+Authorization: Bearer {{token}} 
+
+{
+    "name": "Ubuntu Server 18.04 LTS",
+    "uuid": "6f86b1a6-4641-11ec-a182-a9e398e829e3"
+}

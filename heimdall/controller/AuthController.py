@@ -7,7 +7,6 @@ class AuthController(Endpoint):
     def __init__(self) -> None:
         self.authService = AuthService()
         
-
     @RequestArgs([
         Argument("username", required=True,  help="Username cannot be null"),
         Argument("password", required=True,  help="Password cannot be null"),

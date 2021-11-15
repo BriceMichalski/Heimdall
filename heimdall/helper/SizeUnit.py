@@ -1,5 +1,7 @@
+from heimdall.framework.model.meta.Singleton import Singleton
 
-class SizeUnit:
+class SizeUnit(metaclass=Singleton):
+    
     B = {
         "factor": 0,
         "symbol": "B"

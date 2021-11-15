@@ -1,4 +1,5 @@
 """Cli interface for Heimdall"""
+import os
 import click
 import pyfiglet
 
@@ -12,6 +13,7 @@ def main():
     
 @main.command()
 def start():
+    os.system('clear')
     banner = pyfiglet.figlet_format("Heimdall")
     print(banner)
     print(" * Starting heimdall server")
